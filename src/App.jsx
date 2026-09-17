@@ -1,4 +1,5 @@
 import profilePicture from './assets/profile-photo.png'
+import projectLoanCustomerRisk from './assets/project-loan-customer-risk.png'
 import projectLaporInfrastructure from './assets/project-lapor-infrastructure.png'
 import projectCropYieldPrediction from './assets/project-cropyield-prediction.png'
 import './App.css'
@@ -19,8 +20,8 @@ const skillGroups = [
     skills: ['Power BI', 'Tableau'],
   },
   {
-    title: 'Software Development',
-    skills: ['HTML', 'CSS', 'Tailwind CSS', 'React'],
+    title: 'Software Engineering',
+    skills: ['HTML', 'CSS', 'Tailwind CSS', 'React', 'Vite'],
   },
 ]
 
@@ -34,10 +35,18 @@ const profileDetails = [
 
 const projects = [
   {
+    name: 'Loan Customer Risk',
+    status: 'Finished',
+    summary:
+      'Built a customer risk prediction model based on available customer characteristics.',
+    image: projectLoanCustomerRisk,
+    meta: 'Clustering / Big Data Processing',
+  },
+  {
     name: 'Lapor Infrastructure',
     status: 'Finished',
     summary:
-      'Aplikasi pelaporan dengan dashboard admin, data laporan, dan tampilan mobile untuk membantu pengguna mengirim laporan dengan lebih mudah.',
+      'A reporting application with an admin dashboard, report data management, and a mobile view to help users submit reports more easily.',
     link: 'https://github.com/bonahandsome5G/Lapor-Infrastructure',
     image: projectLaporInfrastructure,
     meta: 'Infrastructure / Software Engineering',
@@ -46,7 +55,7 @@ const projects = [
     name: 'CropYield Analysis',
     status: 'Finished',
     summary:
-      'Project prediksi hasil panen menggunakan data cuaca dan tanah untuk memperkirakan produktivitas tanaman.',
+      'A crop yield prediction project that uses weather and soil data to estimate agricultural productivity.',
     link: 'https://github.com/Tristy17/CropYield-Analysis',
     image: projectCropYieldPrediction,
     meta: 'Prediction / Artificial Intelligence',
@@ -55,7 +64,7 @@ const projects = [
 
 const contacts = [
   { label: 'Email', value: 'tristanp.w8330@gmail.com', href: 'mailto:tristanp.w8330@gmail.com' },
-  { label: 'WhatsApp', value: '+62 813-1696-2279', href: 'https://wa.me/6281316962279' },
+  { label: 'LinkedIn', value: 'linkedin.com/in/tristan-putra', href: 'https://www.linkedin.com/in/tristan-putra' },
   { label: 'GitHub', value: 'github.com/Tristy17', href: 'https://github.com/Tristy17' },
 ]
 
@@ -63,8 +72,8 @@ function App() {
   return (
     <main className="site-shell">
       <article className="portfolio-frame">
-        <header className="topbar" aria-label="Navigasi utama">
-          <a className="brand" href="#home" aria-label="Kembali ke awal halaman">
+        <header className="topbar" aria-label="Main navigation">
+          <a className="brand" href="#home" aria-label="Back to top">
             Portfolio CV
           </a>
           <nav>
@@ -74,8 +83,8 @@ function App() {
               </a>
             ))}
           </nav>
-          <a className="download-link" href="#contact">
-            Contact
+          <a className="download-link" href="/CV.pdf" download="Tristan-Putra-CV.pdf">
+            Download My CV
           </a>
         </header>
 
@@ -101,17 +110,20 @@ function App() {
                 <li key={detail}>{detail}</li>
               ))}
             </ul>
-            <div className="hero-actions" aria-label="Aksi utama">
+            <div className="hero-actions" aria-label="Primary actions">
               <a className="call-button" href="#works">
                 View Works
               </a>
               <a className="ghost-button" href="#skills">
                 See Skills
               </a>
+              <a className="ghost-button" href="/CV.pdf" download="Tristan-Putra-CV.pdf">
+                Download My CV
+              </a>
             </div>
           </div>
           <div className="portrait-field">
-            <img src={profilePicture} alt="Foto profil" />
+            <img src={profilePicture} alt="Profile portrait" />
           </div>
         </section>
 
@@ -139,39 +151,44 @@ function App() {
 
         <section className="works" id="works" aria-labelledby="works-title">
           <div className="section-title-row">
-            <h2 id="works-title">Project GitHub</h2>
+            <h2 id="works-title">GitHub Projects</h2>
           </div>
 
           <div className="showcase-list">
-            {projects.map((project, index) => (
-              <a
-                className="showcase-card"
-                href={project.link}
-                target="_blank"
-                rel="noreferrer"
-                key={project.name}
-              >
-                <img src={project.image} alt={`Preview ${project.name}`} />
-                <div className="showcase-overlay">
-                  <p className="work-meta">
-                    0{index + 1} / {project.meta}
-                  </p>
-                  <h3>
-                    {project.name} - {project.status}
-                  </h3>
-                  <p>{project.summary}</p>
-                </div>
-              </a>
-            ))}
+            {projects.map((project, index) => {
+              const Card = project.link ? 'a' : 'article'
+              const cardProps = project.link
+                ? { href: project.link, target: '_blank', rel: 'noreferrer' }
+                : {}
+
+              return (
+                <Card
+                  className="showcase-card"
+                  key={project.name}
+                  {...cardProps}
+                >
+                  <img src={project.image} alt={`Preview ${project.name}`} />
+                  <div className="showcase-overlay">
+                    <p className="work-meta">
+                      0{index + 1} / {project.meta}
+                    </p>
+                    <h3>
+                      {project.name} - {project.status}
+                    </h3>
+                    <p>{project.summary}</p>
+                  </div>
+                </Card>
+              )
+            })}
           </div>
         </section>
 
         <section className="contact-panel" id="contact" aria-labelledby="contact-title">
           <div>
             <p className="eyebrow">Let's Talk</p>
-            <h2 id="contact-title">Contact Saya</h2>
+            <h2 id="contact-title">Contact Me</h2>
             <p>
-              Terbuka untuk kesempatan internship terutama di bidang data dan AI.
+              Open to internship opportunities, especially in data and AI.
             </p>
           </div>
 
