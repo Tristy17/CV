@@ -39,6 +39,7 @@ const projects = [
     status: 'Finished',
     summary:
       'Built a customer risk prediction model based on available customer characteristics.',
+    link: 'https://github.com/Tristy17/LoanCustomerRisk',
     image: projectLoanCustomerRisk,
     meta: 'Clustering / Big Data Processing',
   },
