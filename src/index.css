@@ -1,0 +1,64 @@
+:root {
+  --bg: #efefed;
+  --paper: #fffefa;
+  --wash: #f4f5ef;
+  --ink: #080808;
+  --text: #394657;
+  --accent: #5b6e2d;
+  --line: rgba(24, 24, 24, 0.08);
+  --sans:
+    "Inter", Arial, sans-serif;
+  --serif: Georgia, "Times New Roman", serif;
+
+  font: 16px/1.5 var(--sans);
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: var(--bg);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+p,
+a {
+  overflow-wrap: anywhere;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--ink);
+  letter-spacing: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
