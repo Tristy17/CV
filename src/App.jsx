@@ -2,30 +2,43 @@ import profilePicture from './assets/profile-photo.png'
 import projectLoanCustomerRisk from './assets/project-loan-customer-risk.png'
 import projectLaporInfrastructure from './assets/project-lapor-infrastructure.png'
 import projectCropYieldPrediction from './assets/project-cropyield-prediction.png'
+import projectDataEng from './assets/project-data-engineering.png'   // <-- baris baru
+import projectDataViz from './assets/data-visualization.png'
 import './App.css'
+
 
 const navItems = ['Skills', 'Works', 'Contact']
 
 const skillGroups = [
   {
-    title: 'Programming',
-    skills: ['Python', 'C', 'C++', 'Java'],
-  },
-  {
-    title: 'Data Management',
-    skills: ['SQL', 'PostgreSQL', 'Spark', 'Hive', 'Pentaho', 'Airflow'],
-  },
-  {
-    title: 'Data Visualization',
-    skills: ['Power BI', 'Tableau'],
-  },
-  {
-    title: 'Software Engineering',
-    skills: ['HTML', 'CSS', 'Tailwind CSS', 'React', 'Vite'],
+    title: 'Tech Skill',
+    skills: [
+      'SQL',
+      'PostgreSQL',
+      'Spark',
+      'Hive',
+      'Pentaho',
+      'Airflow',
+      'Power BI',
+      'Tableau',
+      'Python',
+      'C',
+      'C++',
+      'Java',
+      'HTML',
+      'CSS',
+      'Java Script',
+      'React',
+      'Vite',
+    ],
   },
 ]
 
-const toId = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+const toId = (value) =>
+  value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '')
 
 const profileDetails = [
   'Tangerang-Jakarta, Indonesia',
@@ -42,6 +55,27 @@ const projects = [
     link: 'https://github.com/Tristy17/LoanCustomerRisk',
     image: projectLoanCustomerRisk,
     meta: 'Clustering / Big Data Processing',
+    fit: 'contain',
+  },
+  {
+    name: 'Loan Customer Risk Data Pipeline',
+    status: 'Finished',
+    summary:
+      'A data engineering project that builds transformations and a job to process loan data, deployed on Ubuntu using the data model from the Loan Customer Risk project.',
+    link: 'https://github.com/Tristy17/Data-Engineering-Project',
+    image: projectDataEng,
+    meta: 'Data Pipeline, OLTP, OLAP / Data Engineering',
+    fit: 'contain',
+  },
+    {
+    name: 'Coffee Sales Dashboard',
+    status: 'Finished',
+    summary:
+      'An interactive Tableau dashboard analyzing coffee sales from Mar 2024 to Mar 2025, using time series analysis to compare revenue by product, time of day, weekday, and month to optimize operations around daily product shifts.',
+    link: 'https://github.com/bonahandsome5G/Coffee-Sales-Dash',
+    image: projectDataViz,
+    meta: 'Coffee Shop Dashboard / Data Visualization',
+    fit: 'contain',
   },
   {
     name: 'Lapor Infrastructure',
@@ -51,6 +85,7 @@ const projects = [
     link: 'https://github.com/bonahandsome5G/Lapor-Infrastructure',
     image: projectLaporInfrastructure,
     meta: 'Infrastructure / Software Engineering',
+    fit: 'contain',
   },
   {
     name: 'CropYield Analysis',
@@ -60,13 +95,26 @@ const projects = [
     link: 'https://github.com/Tristy17/CropYield-Analysis',
     image: projectCropYieldPrediction,
     meta: 'Prediction / Artificial Intelligence',
+    fit: 'contain',
   },
 ]
 
 const contacts = [
-  { label: 'Email', value: 'tristanp.w8330@gmail.com', href: 'mailto:tristanp.w8330@gmail.com' },
-  { label: 'LinkedIn', value: 'linkedin.com/in/tristan-putra', href: 'https://www.linkedin.com/in/tristan-putra' },
-  { label: 'GitHub', value: 'github.com/Tristy17', href: 'https://github.com/Tristy17' },
+  {
+    label: 'Email',
+    value: 'tristanp.w8330@gmail.com',
+    href: 'mailto:tristanp.w8330@gmail.com',
+  },
+  {
+    label: 'LinkedIn',
+    value: 'linkedin.com/in/tristan-putra',
+    href: 'https://www.linkedin.com/in/tristan-putra',
+  },
+  {
+    label: 'GitHub',
+    value: 'github.com/Tristy17',
+    href: 'https://github.com/Tristy17',
+  },
 ]
 
 function App() {
@@ -77,6 +125,7 @@ function App() {
           <a className="brand" href="#home" aria-label="Back to top">
             Portfolio CV
           </a>
+
           <nav>
             {navItems.map((item) => (
               <a href={`#${item.toLowerCase()}`} key={item}>
@@ -84,7 +133,12 @@ function App() {
               </a>
             ))}
           </nav>
-          <a className="download-link" href="/CV.pdf" download="Tristan-Putra-CV.pdf">
+
+          <a
+            className="download-link"
+            href="/CV1.pdf"
+            download="Tristan-Putra-CV.pdf"
+          >
             Download My CV
           </a>
         </header>
@@ -92,53 +146,68 @@ function App() {
         <section className="hero" id="home" aria-labelledby="hero-title">
           <div className="hero-copy">
             <p className="eyebrow">Portfolio CV</p>
+
             <h1 id="hero-title">
               Tristan Putra
               <span>Wilau</span>
             </h1>
+
             <p>
-              I am a fifth-semester Computer Science student at BINUS University.
-              I am interested in data, machine learning, software engineering, and
-              application development. I have worked on college projects related to
-              data analysis, prediction models, and web applications. I also have
-              experience selling Roblox game items through Indonesian and
-              international marketplaces, which helped me become more confident in
-              communication, time management, and solving problems directly with
-              customers.
+              Fifth-semester Computer Science student at BINUS University with
+              interests in Big Data Processing, Data Analytics, Data
+              Engineering, Data Science, and Business Analytics. Experienced in
+              data-driven projects and Roblox game item sales across Indonesian
+              and international marketplaces, with strong communication, time
+              management, and problem-solving skills.
             </p>
+
             <ul className="profile-details" aria-label="Profile details">
               {profileDetails.map((detail) => (
                 <li key={detail}>{detail}</li>
               ))}
             </ul>
+
             <div className="hero-actions" aria-label="Primary actions">
               <a className="call-button" href="#works">
                 View Works
               </a>
-              <a className="ghost-button" href="#skills">
-                See Skills
-              </a>
-              <a className="ghost-button" href="/CV.pdf" download="Tristan-Putra-CV.pdf">
+
+              <a
+                className="ghost-button"
+                href="/CV.pdf"
+                download="Tristan-Putra-CV.pdf"
+              >
                 Download My CV
               </a>
             </div>
           </div>
+
           <div className="portrait-field">
             <img src={profilePicture} alt="Profile portrait" />
           </div>
         </section>
 
-        <section className="skills-section" id="skills" aria-labelledby="skills-title">
+        <section
+          className="skills-section"
+          id="skills"
+          aria-labelledby="skills-title"
+        >
           <div className="section-title-row compact">
-            <h2 id="skills-title">Skill Set</h2>
+            <h2 id="skills-title">Tech Skill</h2>
           </div>
+
           <div className="skill-grid">
             {skillGroups.map((group) => {
               const titleId = `${toId(group.title)}-title`
 
               return (
-                <section className="skill-card" key={group.title} aria-labelledby={titleId}>
+                <section
+                  className="skill-card"
+                  key={group.title}
+                  aria-labelledby={titleId}
+                >
                   <h3 id={titleId}>{group.title}</h3>
+
                   <div className="skill-tags">
                     {group.skills.map((skill) => (
                       <span key={skill}>{skill}</span>
@@ -150,7 +219,11 @@ function App() {
           </div>
         </section>
 
-        <section className="works" id="works" aria-labelledby="works-title">
+        <section
+          className="works"
+          id="works"
+          aria-labelledby="works-title"
+        >
           <div className="section-title-row">
             <h2 id="works-title">GitHub Projects</h2>
           </div>
@@ -158,8 +231,13 @@ function App() {
           <div className="showcase-list">
             {projects.map((project, index) => {
               const Card = project.link ? 'a' : 'article'
+
               const cardProps = project.link
-                ? { href: project.link, target: '_blank', rel: 'noreferrer' }
+                ? {
+                    href: project.link,
+                    target: '_blank',
+                    rel: 'noreferrer',
+                  }
                 : {}
 
               return (
@@ -168,14 +246,21 @@ function App() {
                   key={project.name}
                   {...cardProps}
                 >
-                  <img src={project.image} alt={`Preview ${project.name}`} />
+                  <img
+                    src={project.image}
+                    alt={`Preview ${project.name}`}
+                    className={project.fit === 'contain' ? 'fit-contain' : ''}
+                  />
+
                   <div className="showcase-overlay">
                     <p className="work-meta">
                       0{index + 1} / {project.meta}
                     </p>
+
                     <h3>
                       {project.name} - {project.status}
                     </h3>
+
                     <p>{project.summary}</p>
                   </div>
                 </Card>
@@ -184,12 +269,21 @@ function App() {
           </div>
         </section>
 
-        <section className="contact-panel" id="contact" aria-labelledby="contact-title">
+        <section
+          className="contact-panel"
+          id="contact"
+          aria-labelledby="contact-title"
+        >
           <div>
             <p className="eyebrow">Let's Talk</p>
+
             <h2 id="contact-title">Contact Me</h2>
+
             <p>
-              Open to internship opportunities, especially in data and AI.
+              I have a strong interest in data-related fields, particularly
+              databases. I hope to have the opportunity to work on
+              database-related projects and further develop my skills through
+              practical experience.
             </p>
           </div>
 

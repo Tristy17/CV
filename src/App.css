@@ -186,7 +186,7 @@
 
 .skill-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 14px;
 }
 
@@ -261,6 +261,7 @@
   display: grid;
   gap: 24px;
 }
+
 
 .showcase-card {
   position: relative;
@@ -343,6 +344,7 @@
   grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1fr);
   gap: 44px;
   padding: 44px 62px;
+  background: #f4ead8;
   text-align: left;
 }
 
@@ -386,6 +388,28 @@ a {
 a:focus-visible {
   outline: 4px solid rgba(181, 240, 36, 0.62);
   outline-offset: 4px;
+}
+
+.showcase-card:has(img.fit-contain) {
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+.showcase-card img.fit-contain {
+  position: static !important;
+  inset: auto !important;
+  transform: none !important;
+  display: block;
+  width: 100%;
+  height: auto !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: contain;
+}
+
+.showcase-card:has(img.fit-contain) .showcase-overlay {
+  position: relative !important;
+  inset: auto !important;
 }
 
 @media (max-width: 1040px) and (min-width: 861px) {
@@ -487,3 +511,4 @@ a:focus-visible {
     padding: 18px;
   }
 }
+
