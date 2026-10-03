@@ -136,7 +136,7 @@ function App() {
 
           <a
             className="download-link"
-            href="/CV1.pdf"
+            href="/Tristan Putra Wilau CV.pdf"
             download="Tristan-Putra-CV.pdf"
           >
             Download My CV
